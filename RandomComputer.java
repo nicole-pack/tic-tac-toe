@@ -1,8 +1,9 @@
-package tic-tac-toe;
+import java.util.Random;
 
 class RandomComputer extends Player {
 	String token;
-	File input;
+	//import File api
+	//File input;
 	String[] odds;
 	//Initialize fileInputReader
 	Random rng = new Random();
@@ -10,20 +11,21 @@ class RandomComputer extends Player {
 	int select;
 	int space;
 	//Constructor: writes token placement odds into array
-	public LearningComputer(String xo){
+	public RandomComputer(String xo){
 		this.token = xo;
 		//File reader
 	}
 	//OVERRIDE: Place token based on rng
 	public int selectSpace(boolean[] selectBoard){
 		random = rng.nextDouble();
-		select = Math.floor(random * 9);
+		//Investigate Math class for int return types
+		//select = Math.floor(random * 9);
 		space = select-1;
 		if(space<0 || space>8){
-			this.selectSpace(selectionBoard);
+			this.selectSpace(selectBoard);
 		}
-		if(selectionBoard[space]){
-			this.selctSpace(selectionBoard);
+		if(selectBoard[space]){
+			this.selectSpace(selectBoard);
 		}
 		return space;
 	}

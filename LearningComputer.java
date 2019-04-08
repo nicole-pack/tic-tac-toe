@@ -1,10 +1,9 @@
 import java.util.Random;
 
-package tic-tac-toe;
-
 class LearningComputer extends Player {
 	String token;
-	File input;
+	//import File api
+	//File input;
 	String[] odds;
 	//Initialize fileInputReader
 	Random rng = new Random();
@@ -17,16 +16,17 @@ class LearningComputer extends Player {
 		//File reader
 	}
 	//OVERRIDE: Place token based on rng + past winnings knowledge
-	public int selectSpace(boolean[] selectBoard){
+	public int selectSpace(boolean[] selectionBoard){
 		random = rng.nextDouble();
-		select = Math.floor(random * 9);
+		//Investigate Math class for int return types
+		//select = Math.floor(random * 9);
 		space = select-1;
 		//Implement odds array
 		if(space<0 || space>8){
 			this.selectSpace(selectionBoard);
 		}
 		if(selectionBoard[space]){
-			this.selctSpace(selectionBoard);
+			this.selectSpace(selectionBoard);
 		}
 		return space;
 	}

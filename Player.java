@@ -1,7 +1,7 @@
-package tic-tac-toe;
+import java.util.Scanner;
 
 class Player {
-	final String token;
+	String token;
 	
 	public Player(){
 	}
@@ -27,10 +27,12 @@ class Player {
 		}
 		if(selectionBoard[space]){
 			System.out.println("Please choose an empty space.");
-			this.selctSpace(selectionBoard);
+			this.selectSpace(selectionBoard);
 		}
 		return space;
 	}
 	
-	public void ouputWinner();
+	public void ouputWinner(){
+		
+	}
 }
