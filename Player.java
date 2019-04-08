@@ -31,4 +31,6 @@ class Player {
 		}
 		return space;
 	}
+	
+	public void ouputWinner();
 }
