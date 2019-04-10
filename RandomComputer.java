@@ -1,4 +1,4 @@
-import java.util.Random;
+import java.lang.Math;
 
 class RandomComputer extends Player {
 	String token;
@@ -6,7 +6,6 @@ class RandomComputer extends Player {
 	//File input;
 	String[] odds;
 	//Initialize fileInputReader
-	Random rng = new Random();
 	double random;
 	int select;
 	int space;
@@ -17,9 +16,8 @@ class RandomComputer extends Player {
 	}
 	//OVERRIDE: Place token based on rng
 	public int selectSpace(boolean[] selectBoard){
-		random = rng.nextDouble();
-		//Investigate Math class for int return types
-		//select = Math.floor(random * 9);
+		random = Math.random();
+		select = (int)Math.floor(random * 9);
 		space = select-1;
 		if(space<0 || space>8){
 			this.selectSpace(selectBoard);

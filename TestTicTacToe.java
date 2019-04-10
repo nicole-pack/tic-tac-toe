@@ -43,6 +43,8 @@ class TestTicTacToe{
 			}
 		}
 	}
+	
+	//Can this be handled somewhere else?
 	public static void initializeGame(Player p1, Player p2){
 		System.out.println("1 player or 2 players");
 		if(scan.nextInt()==1){
@@ -59,6 +61,9 @@ class TestTicTacToe{
 			this.initializeGame(p1, p2);
 		}
 	}
+	
+	/*
+	//Implemented in GameBoard class
 	public static void printBoard(String[] board){
 		System.out.println("" + gameBoard[0] + " | " + gameBoard[1] + " | " + gameBoard[2]);
 		System.out.println("- - - - -");
@@ -72,6 +77,7 @@ class TestTicTacToe{
 		selectionBoard[position] = true;
 		TestTicTacToe.printBoard(gameBoard);
 		numTurns--;
-		
 	}
+	*/
+	
 }
