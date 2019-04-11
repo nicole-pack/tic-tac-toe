@@ -2,12 +2,18 @@ import java.util.Scanner;
 
 class Player {
 	String token;
-	
+	boolean turnLog[];
 	public Player(){
 	}
 	
 	public Player(String xo){
 		this.token = xo;
+		turnLog = new boolean[5];
+		turnLog[0] = false;
+		turnLog[1] = false;
+		turnLog[2] = false;
+		turnLog[3] = false;
+		turnLog[4] = false;
 	}
 	
 	public void setToken(String xo){
@@ -29,6 +35,7 @@ class Player {
 			System.out.println("Please choose an empty space.");
 			this.selectSpace(selectionBoard);
 		}
+		turnLog[space] = true;
 		return space;
 	}
 	

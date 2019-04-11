@@ -3,20 +3,15 @@
 class GameBoard {
 	String gameBoard[];
 	boolean selectionBoard[];
-	String gameLog[];
-	Player player1;
-	Player player2;
+	int gameLog[];
 	int numTurns;
-	//Queue<Player> turnOrder = new Queue<Player>;
-	boolean proceed = false;
 	
-	public GameBoard(Player p1, Player p2){
-		this.player1 = p1;
-		this.player2 = p2;
+	public GameBoard(){
 		gameBoard = new String[9];
 		selectionBoard = new boolean[9];
 		//Try using linked list for gameLog
 		gameLog = new String[9];
+		numTurns = 0;
 		//Initiate game board
 		gameBoard[0] = "1";
 		gameBoard[1] = "2";
@@ -38,15 +33,6 @@ class GameBoard {
 		selectionBoard[7] = false;
 		selectionBoard[8] = false;
 		
-		//Add players to turn order
-		//(other options should be explored)
-		//.add() returns boolean, so needs new solution
-		//turnOrder.add(player1);
-		//turnOrder.add(player2);
-	}
-	
-	public Player nextTurn(){
-		//theoretically, push and pop players from queue
 	}
 	
 	public void printBoard(){
@@ -60,7 +46,11 @@ class GameBoard {
 		int position = input;
 		gameBoard[position] = token;
 		selectionBoard[position] = true;
+		gameLog[numTurns] = position;
 		this.printBoard();
-		numTurns--;
+		numTurns++;
+	}
+	public String checkWinner(boolean[] turnLog){
+		
 	}
 }
