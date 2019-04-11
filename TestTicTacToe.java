@@ -44,7 +44,7 @@ class TestTicTacToe{
 		}
 	}
 	
-	//Can this be handled somewhere else?
+	//Handled in the GameDisplay class
 	public static void initializeGame(Player p1, Player p2){
 		System.out.println("1 player or 2 players");
 		if(scan.nextInt()==1){

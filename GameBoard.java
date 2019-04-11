@@ -6,6 +6,9 @@ class GameBoard {
 	String gameLog[];
 	Player player1;
 	Player player2;
+	int numTurns;
+	//Queue<Player> turnOrder = new Queue<Player>;
+	boolean proceed = false;
 	
 	public GameBoard(Player p1, Player p2){
 		this.player1 = p1;
@@ -34,13 +37,19 @@ class GameBoard {
 		selectionBoard[6] = false;
 		selectionBoard[7] = false;
 		selectionBoard[8] = false;
-	}
-	
-	public Player nextTurn(Player turn){
 		
+		//Add players to turn order
+		//(other options should be explored)
+		//.add() returns boolean, so needs new solution
+		//turnOrder.add(player1);
+		//turnOrder.add(player2);
 	}
 	
-	public void printBoard(String[] board){
+	public Player nextTurn(){
+		//theoretically, push and pop players from queue
+	}
+	
+	public void printBoard(){
 		System.out.println("" + gameBoard[0] + " | " + gameBoard[1] + " | " + gameBoard[2]);
 		System.out.println("- - - - -");
 		System.out.println("" + gameBoard[3] + " | " + gameBoard[4] + " | " + gameBoard[5]);
@@ -51,7 +60,7 @@ class GameBoard {
 		int position = input;
 		gameBoard[position] = token;
 		selectionBoard[position] = true;
-		this.printBoard(gameBoard);
+		this.printBoard();
 		numTurns--;
 	}
 }
