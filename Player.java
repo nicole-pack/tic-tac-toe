@@ -8,12 +8,16 @@ class Player {
 	
 	public Player(String xo){
 		this.token = xo;
-		turnLog = new boolean[5];
+		turnLog = new boolean[9];
 		turnLog[0] = false;
 		turnLog[1] = false;
 		turnLog[2] = false;
 		turnLog[3] = false;
 		turnLog[4] = false;
+		turnLog[5] = false;
+		turnLog[6] = false;
+		turnLog[7] = false;
+		turnLog[8] = false;
 	}
 	
 	public void setToken(String xo){

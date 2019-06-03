@@ -5,12 +5,12 @@ class GameBoard {
 	boolean selectionBoard[];
 	int gameLog[];
 	int numTurns;
-	
+	boolean winnerDeclared = false;
 	public GameBoard(){
 		gameBoard = new String[9];
 		selectionBoard = new boolean[9];
 		//Try using linked list for gameLog
-		gameLog = new String[9];
+		//gameLog = new String[9];
 		numTurns = 0;
 		//Initiate game board
 		gameBoard[0] = "1";
@@ -46,11 +46,41 @@ class GameBoard {
 		int position = input;
 		gameBoard[position] = token;
 		selectionBoard[position] = true;
-		gameLog[numTurns] = position;
+		//gameLog[numTurns] = position;
 		this.printBoard();
 		numTurns++;
 	}
-	public String checkWinner(boolean[] turnLog){
-		
+	public boolean checkWinner(boolean[] turnLog){
+		if(turnLog[4]){
+			if(turnLog[0]&&turnLog[8]){
+				winnerDeclared = true;
+			}
+			else if(turnLog[1]&&turnLog[7]){
+				winnerDeclared = true;
+			}
+			else if(turnLog[2]&&turnLog[6]){
+				winnerDeclared = true;
+			}
+			else if(turnLog[3]&&turnLog[5]){
+				winnerDeclared = true;
+			}
+		}
+		else if(turnLog[0]){
+			if(turnLog[1]&&turnLog[2]){
+				winnerDeclared = true;
+			}
+			else if(turnLog[3]&&turnLog[6]){
+				winnerDeclared = true;
+			}
+		}
+		else if(turnLog[8]){
+			if(turnLog[2]&&turnLog[5]){
+				winnerDeclared = true;
+			}
+			else if(turnLog[6]&&turnLog[7]){
+				winnerDeclared = true;
+			}
+		}
+		return winnerDeclared;
 	}
 }

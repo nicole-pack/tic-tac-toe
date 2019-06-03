@@ -28,20 +28,47 @@ public class TicTacToe {
 		//player1 turn
 		nextSpace = player1.selectSpace(game.selectionBoard);
 		game.updateBoard(nextSpace, player1.getToken());
+		//Turns 1-4 are not capable of producing a winner
 		while(game.numTurns<5){
 			//player2 turn
+			System.out.println("Player 2 turn");
 			nextSpace = player2.selectSpace(game.selectionBoard);
-			game.updateBoard(nextSpace, player1.getToken());
+			game.updateBoard(nextSpace, player2.getToken());
 			game.printBoard();
 			//player1 turn
+			System.out.println("Player 1 turn");
 			nextSpace = player1.selectSpace(game.selectionBoard);
 			game.updateBoard(nextSpace, player1.getToken());
 			game.printBoard();
 		}
-		String winner = game.checkWinner(player1.turnLog);
-		
+		//For turns 5-9, check for a winner
+		if(game.checkWinner(player1.turnLog)){
+			System.out.println("Player1 wins!");
+		}
+		while(game.numTurns<9 && !game.winnerDeclared){
+			//player2 turn
+			System.out.println("Player 2 turn");
+			nextSpace = player2.selectSpace(game.selectionBoard);
+			game.updateBoard(nextSpace, player2.getToken());
+			game.printBoard();
+			if(game.checkWinner(player2.turnLog)){
+				System.out.println("Player2 wins!");
+				break;
+			}
+			//player1 turn
+			System.out.println("Player 1 turn");
+			nextSpace = player1.selectSpace(game.selectionBoard);
+			game.updateBoard(nextSpace, player1.getToken());
+			game.printBoard();
+			if(game.checkWinner(player1.turnLog)){
+				System.out.println("Player1 wins!");
+				break;
+			}
+		}
 		
 	}
+
+/*	Can creating players be handled here?
 	public RandomComputer addRandomComputer(){
 		
 	}
@@ -51,4 +78,5 @@ public class TicTacToe {
 	public Player addHumanPlayer(){
 		
 	}
+*/
 }
