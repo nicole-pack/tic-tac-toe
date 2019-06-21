@@ -1,4 +1,4 @@
-import java.lang.Math;
+  import java.lang.Math;
 
 class RandomComputer extends Player {
 	String token;
